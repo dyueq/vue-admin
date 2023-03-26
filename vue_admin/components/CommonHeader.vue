@@ -51,13 +51,10 @@ export default {
             this.$router.push({ name: 'userCenter' })
         },
         logOut() {
-            this.$axios.post(`/logOut`)
-                .then((res) => {
-                    localStorage.clear()
-                    sessionStorage.clear()
-                    this.$store.commit('resetState')
-                    this.$router.push("/")
-                })
+            localStorage.clear()
+            sessionStorage.clear()
+            this.$store.commit('resetState')
+            this.$router.push("/")
         }
     },
     computed: {

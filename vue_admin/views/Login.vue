@@ -17,7 +17,7 @@
                 </el-form-item>
                 <el-form-item label="验证码" prop="code" style="width: 380px;">
                     <el-input v-model="form.code" autocomplete="off" style="width:170px;float: left;"></el-input>
-                    <el-image class="codeImg" :src="captchaImg" @click="getCaptcha"></el-image>
+                    <el-image class="codeImg" :title="msg" :src="captchaImg" @click="getCaptcha">{{ msg }}</el-image>
                 </el-form-item>
                 <el-form-item>
                     <el-button type="primary" @click="submitForm('form')">登录</el-button>
@@ -36,6 +36,7 @@ export default {
     data() {
         return {
             labelWidth: "180px",
+            msg: '看不清，换一张',
             form: {
                 username: 'admin',
                 password: '123',
@@ -114,5 +115,6 @@ export default {
     float: left;
     margin-left: 8px;
     border-radius: 4px;
+    cursor: pointer;
 }
 </style>

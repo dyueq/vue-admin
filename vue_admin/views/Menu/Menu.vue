@@ -47,7 +47,7 @@
         <el-dialog title="提示" :visible.sync="dialogVisible" width="50%" :before-close="handleClose">
             <el-form :model="editForm" :rules="rules" ref="editForm" label-width="100px">
                 <el-form-item label="上级菜单" prop="parentId">
-                    <el-select v-model="editForm.parentId" placeholder="请选择上级菜单">
+                    <el-select v-model="editForm.parentId" placeholder="请选择上级菜单" :disabled="editForm.parentId == 0">
                         <template v-for="item in tableData">
                             <el-option :label="item.name" :value="item.id"></el-option>
                             <template v-for="child in item.children">
@@ -173,7 +173,6 @@ export default {
             this.$axios.get(`/menu/info/${id}`)
                 .then((res) => {
                     this.editForm = res.data.data
-                    console.log(this.editForm);
                     this.dialogVisible = true
                 })
         },

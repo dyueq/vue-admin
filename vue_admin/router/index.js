@@ -46,7 +46,12 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
 
   let hasRoute = store.state.tab.hasRoute
-  if (!hasRoute) {
+  let token = localStorage.getItem("token")
+  if (to.path == '/') {
+    next()
+  } else if (!token) {
+    next({ path: '/' })
+  } else if (token && !hasRoute) {
     //获取路由信息
     axios.get(`/api/menu/nav`, {
       headers: {

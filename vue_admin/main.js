@@ -14,7 +14,7 @@ Vue.prototype.$axios = axios
 Vue.config.productionTip = false
 Vue.use(ElementUI);
 
-// require('./assets/mock/mock')
+// require('./assets/mock/mock') ----- (前后联调时前端修改了一些数据，mock数据没用就没改)
 
 new Vue({
   router,
