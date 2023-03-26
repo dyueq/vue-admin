@@ -1,0 +1,27 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/sql_admin?serverTimezong=UTC
+      username: root
+      password: 123456
+#  security:
+#    user:
+#      name: user
+#      password: 123
+
+
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+admin:
+  jwt:
+    header: Authorization
+    expire: 604800  #s , 7days
+    secret: 5w7e6rwe87r8w7e6r87we6w87er1y23u
